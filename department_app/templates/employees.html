@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% set active = 'browse employees' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-7">
+                <table id="employees-table" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Employee</th>
+                        <th class="text-center">Date of birth</th>
+                        <th class="text-center">Salary</th>
+                        <th>Department</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- initialize later with js-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">
+            Want to add new employee?
+        </h2>
+        <a class="btn-lg btn-primary center-block text-center"
+           href={{ url_for("add_employee") }} style="text-decoration:none;">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span>Add employee</span>
+        </a>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/employees.js') }}"></script>
+{% endblock %}

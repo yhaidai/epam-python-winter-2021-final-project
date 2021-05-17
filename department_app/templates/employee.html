@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% set active = 'manage employees' %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#add-employee">Add new employee</a>
+                    </h4>
+                </div>
+                <div id="add-employee"
+                     class="panel-collapse collapse {{ 'in' if expand == 'add' else '' }}">
+                    <div class="panel-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="add-name">Enter employee
+                                    name:</label>
+                                <input type="text" class="form-control"
+                                       id="add-name" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-dob">Enter employee date of
+                                    birth:</label>
+                                <input type="text" class="form-control"
+                                       id="add-dob" placeholder="YYYY-MM-DD">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-salary">Enter employee
+                                    salary:</label>
+                                <input type="text" class="form-control"
+                                       id="add-salary" placeholder="1234">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-select-department">Select
+                                    department for the employee:</label>
+                                <select class="form-control"
+                                        id="add-select-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#edit-employee">Edit existing employee</a>
+                    </h4>
+                </div>
+
+                <div id="edit-employee"
+                     class="panel-collapse collapse {{ 'in' if expand == 'edit' else '' }}">
+                    <div class="panel-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="edit-select-department">Select
+                                    department: </label>
+                                <select class="form-control"
+                                        id="edit-select-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-select-employee">Select
+                                    employee:</label>
+                                <select class="form-control"
+                                        id="edit-select-employee">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-name">Enter new name for the
+                                    employee:</label>
+                                <input type="text" class="form-control"
+                                       id="edit-name" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-dob">Enter new date of birth for
+                                    the employee:</label>
+                                <input type="text" class="form-control"
+                                       id="add-dob" placeholder="YYYY-MM-DD">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-salary">Enter new salary for
+                                    the employee:</label>
+                                <input type="text" class="form-control"
+                                       id="edit-salary" placeholder="1234">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-change-department">Select new
+                                    department for the employee:</label>
+                                <select class="form-control"
+                                        id="edit-change-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#delete-employee">Delete existing employee</a>
+                    </h4>
+                </div>
+                <div id="delete-employee"
+                     class="panel-collapse collapse {{ 'in' if expand == 'delete' else '' }}">
+                    <div class="panel-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="delete-select-department">Select
+                                    department:</label>
+                                <select class="form-control"
+                                        id="delete-select-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="delete-select-employee">Select
+                                    employee:</label>
+                                <select class="form-control"
+                                        id="delete-select-employee">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

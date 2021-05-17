@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% set active = 'browse departments' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <table id="departments-table" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Department</th>
+                        <th>Organisation</th>
+                        <th class="text-center">Average salary</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- initialize later with js-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">
+            Want to add new department?
+        </h2>
+        <a class="btn-lg btn-primary center-block text-center"
+           href={{ url_for('add_department') }} style="text-decoration:none;">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span>Add department</span>
+        </a>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/departments.js') }}"></script>
+{% endblock %}
