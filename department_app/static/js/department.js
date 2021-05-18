@@ -1,3 +1,16 @@
+let EDIT_DEPARTMENT_SELECT_ID = "#edit-select-department";
+let DELETE_DEPARTMENT_SELECT_ID = "#delete-select-department";
+
+let ADD_NAME_ID = "#add-name";
+let ADD_ORGANISATION_ID = "#add-organisation";
+let EDIT_NAME_ID = "#edit-name";
+let EDIT_ORGANISATION_ID = "#edit-organisation";
+
+let ADD_DEPARTMENT_FORM_ID = "#add-department-form";
+let EDIT_DEPARTMENT_FORM_ID = "#edit-department-form";
+let DELETE_DEPARTMENT_FORM_ID = "#delete-department-form";
+
+
 $(document).ready(function () {
     fetch("/api/departments")
         .then((response) => response.json())
@@ -16,102 +29,84 @@ function initForms(departments) {
 }
 
 function initAddDepartmentForm() {
-    $("#add-department-form").submit(function(event) {
+    $(ADD_DEPARTMENT_FORM_ID).submit(function (event) {
         let data = {
-            name: $("#add-name").val(),
-            organisation: $("#add-organisation").val()
+            name: $(ADD_NAME_ID).val(),
+            organisation: $(ADD_ORGANISATION_ID).val()
         }
 
-        fetch("/api/departments/", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-            .then(checkStatus)
-            .then((response) => response.json())
-            .then((department) => {
-                alert(`Successfully added department: 
-                ${JSON.stringify(department)}`);
-            })
-            .catch((err) => {
-                console.log(err);
-                alert("Failed to add department", false);
-            });
+        fetchWithAlert(
+            `/api/departments/`,
+            "POST",
+            "Successfully added department",
+            "Failed to add department",
+            data
+        )
     });
 }
 
 function initEditDepartmentForm(departments) {
-    initDepartmentSelect("#edit-select-department", departments);
-    initDepartmentInputs("#edit-select-department", "#edit-name", "#edit-organisation");
+    initDepartmentSelect(EDIT_DEPARTMENT_SELECT_ID, departments);
+    initDepartmentInputs(EDIT_DEPARTMENT_SELECT_ID, EDIT_NAME_ID, EDIT_ORGANISATION_ID);
 
-    $("#edit-select-department").change(function() {
-        initDepartmentInputs("#edit-select-department", "#edit-name", "#edit-organisation");
+    // reinitialise inputs on option change
+    $(EDIT_DEPARTMENT_SELECT_ID).change(function () {
+        initDepartmentInputs(EDIT_DEPARTMENT_SELECT_ID, EDIT_NAME_ID, EDIT_ORGANISATION_ID);
     });
 
-    $("#edit-department-form").submit(function(event) {
-        let uuid = $("#edit-select-department option:selected").val();
+    $(EDIT_DEPARTMENT_FORM_ID).submit(function (event) {
+        let uuid = $(`${EDIT_DEPARTMENT_SELECT_ID} option:selected`).val();
         let data = {
-            name: $("#edit-name").val(),
-            organisation: $("#edit-organisation").val(),
+            name: $(EDIT_NAME_ID).val(),
+            organisation: $(EDIT_ORGANISATION_ID).val(),
         }
 
-        fetch(`/api/department/${uuid}`, {
-            method: "PUT",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-            .then(checkStatus)
-            .then((response) => response.json())
-            .then((department) => {
-                alert(`Successfully edited department: 
-                ${JSON.stringify(department)}`);
-            })
-            .catch((err) => {
-                console.log(err);
-                alert("Failed to edit department", false);
-            });
+        fetchWithAlert(
+            `/api/department/${uuid}`,
+            "PUT",
+            "Successfully edited department",
+            "Failed to edit department",
+            data
+        )
     });
 }
 
 function initDeleteDepartmentForm(departments) {
-    initDepartmentSelect("#delete-select-department", departments);
+    initDepartmentSelect(DELETE_DEPARTMENT_SELECT_ID, departments);
 
-    $("#delete-department-form").submit(function(event) {
-        let uuid = $("#delete-select-department option:selected").val();
+    $(DELETE_DEPARTMENT_FORM_ID).submit(function (event) {
+        let uuid = $(`${DELETE_DEPARTMENT_SELECT_ID} option:selected`).val();
 
-        fetch(`/api/department/${uuid}`, {
-            method: "DELETE",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-        })
-            .then(checkStatus)
-            .then((response) => {
-                alert("Successfully deleted");
-            })
-            .catch((err) => {
-                console.log(err);
-                alert("Failed to deleted department", false);
-            });
+        fetchWithAlert(
+            `/api/department/${uuid}`,
+            "DELETE",
+            "Successfully deleted department",
+            "Failed to delete department"
+        )
     });
 }
 
 function initDepartmentSelect(selectId, departments) {
+    let url = (" " + window.location).slice(1)
+    let urlSuffix = url.replace(window.origin, "")
+    let urlParts = urlSuffix.split("/").filter(Boolean)
+    let expanded = urlParts[1]
+    let selectElement = $(selectId)
+
     // initialize options
     departments.forEach(department => {
-        $(selectId).append(
+        selectElement.append(
             `<option value="${department.uuid}">
                 ${department.name} (${department.organisation})
             </option>`
         )
     });
+
+    // select initial option
+    if (selectId.includes(expanded) && expanded !== "add") {
+        let uuid = urlParts[2].split('?')[0]
+        selectElement.val(uuid)
+    }
 }
 
 function initDepartmentInputs(selectId, nameInputId, organisationInputId) {
@@ -124,6 +119,31 @@ function initDepartmentInputs(selectId, nameInputId, organisationInputId) {
     $(organisationInputId).val(organisation);
 }
 
+function fetchWithAlert(url, method, successMessage, failureMessage, data = {}) {
+    fetch(url, {
+        method: method,
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(checkStatus)
+        .then((response) => {
+            if (response.status === 204) {
+                return response;
+            }
+            return response.json()
+        })
+        .then((department) => {
+            alert(successMessage);
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(failureMessage, false);
+        });
+}
+
 function checkStatus(response) {
     if (response.ok) {
         return Promise.resolve(response);
@@ -133,19 +153,19 @@ function checkStatus(response) {
 }
 
 function alert(message, success = true) {
-    let cls = 'alert alert-success alert-dismissible fade in text-center'
+    let cls = 'alert-success'
     if (!success) {
-        cls = 'alert alert-danger alert-dismissible fade in text-center'
+        cls = 'alert-danger'
     }
 
     $("body").prepend(
-        `<div id="alert" class="${cls}">
+        `<div class="alert ${cls} alert-dismissible fade in text-center">
             <a href="#" class="close" data-dismiss="alert" 
             aria-label="close">&times;</a>
             <strong>${message}</strong>
         </div>`
     )
     setTimeout(() => {
-        $("#alert").remove()
+        $(`.${cls}`).last().remove()
     }, 10000);
 }

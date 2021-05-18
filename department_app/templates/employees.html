@@ -2,6 +2,49 @@
 {% set active = 'browse employees' %}
 
 {% block content %}
+    <div class="container">
+        <div class="row center-block" style="width:400px;max-width:100%;">
+            <div class="col-sm-12 col-md-10 col-lg-7">
+                <form id="search-by-dob-form" class="hidden" action="#">
+                    <div class="form-group">
+                        <label for="date">Enter date of birth:</label>
+                        <input type="text" class="form-control"
+                               id="date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <span>Search</span>
+                    </button>
+                </form>
+
+                <form id="search-by-dob-period-form" action="#">
+                    <div class="form-group">
+                        <label for="start-date">Enter start date:</label>
+                        <input type="text" class="form-control"
+                               id="start-date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Enter end date:</label>
+                        <input type="text" class="form-control"
+                               id="end-date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <button type="submit" class="btn
+                    btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <span>Search</span>
+                    </button>
+                </form>
+
+                <div class="checkbox">
+                    <label>
+                        <input id="search-toggle-checkbox" type="checkbox"
+                               value="">Search by exact date
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 col-md-10 col-lg-7">

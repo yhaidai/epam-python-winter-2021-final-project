@@ -15,7 +15,7 @@
                 <div id="add-employee"
                      class="panel-collapse collapse {{ 'in' if expand == 'add' else '' }}">
                     <div class="panel-body">
-                        <form action="#">
+                        <form id="add-employee-form" action="#">
                             <div class="form-group">
                                 <label for="add-name">Enter employee
                                     name:</label>
@@ -61,7 +61,7 @@
                 <div id="edit-employee"
                      class="panel-collapse collapse {{ 'in' if expand == 'edit' else '' }}">
                     <div class="panel-body">
-                        <form action="#">
+                        <form id="edit-employee-form" action="#">
                             <div class="form-group">
                                 <label for="edit-select-department">Select
                                     department: </label>
@@ -85,10 +85,11 @@
                                        id="edit-name" placeholder="John Doe">
                             </div>
                             <div class="form-group">
-                                <label for="add-dob">Enter new date of birth for
+                                <label for="edit-dob">Enter new date of birth
+                                    for
                                     the employee:</label>
                                 <input type="text" class="form-control"
-                                       id="add-dob" placeholder="YYYY-MM-DD">
+                                       id="edit-dob" placeholder="YYYY-MM-DD">
                             </div>
                             <div class="form-group">
                                 <label for="edit-salary">Enter new salary for
@@ -122,7 +123,7 @@
                 <div id="delete-employee"
                      class="panel-collapse collapse {{ 'in' if expand == 'delete' else '' }}">
                     <div class="panel-body">
-                        <form action="#">
+                        <form id="delete-employee-form" action="#">
                             <div class="form-group">
                                 <label for="delete-select-department">Select
                                     department:</label>
@@ -148,4 +149,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/employee.js') }}"></script>
 {% endblock %}
