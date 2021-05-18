@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -9,7 +11,7 @@ from flask_restful import Api
 
 from config import Config
 
-MIGRATION_DIR = 'department_app'
+MIGRATION_DIR = os.path.join('department_app', 'migrations')
 TEMPLATES_DIR = 'templates'
 
 app = Flask(__name__, template_folder=TEMPLATES_DIR)
