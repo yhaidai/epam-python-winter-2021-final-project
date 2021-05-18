@@ -13,11 +13,12 @@ class Employee(db.Model):
     uuid = db.Column(db.String(36), unique=True)
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'))
 
-    def __init__(self, name, date_of_birth, salary):
+    def __init__(self, name, date_of_birth, salary=0, department=None):
         self.name = name
         self.date_of_birth = date_of_birth
         self.salary = salary
         self.uuid = str(uuid.uuid4())
+        self.department = department
 
     def __repr__(self):
         return f'Employee({self.name}, {self.date_of_birth}, {self.salary})'
