@@ -1,6 +1,5 @@
 from marshmallow import validates_schema, ValidationError, fields
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
-from marshmallow.fields import Nested
 
 from department_app.models.department import Department
 from department_app.service.department import DepartmentService
@@ -12,16 +11,17 @@ class DepartmentSchema(SQLAlchemyAutoSchema):
         exclude = ['id']
         load_instance = True
         include_fk = True
+        dump_only = ('employees',)
 
     average_salary = fields.Method('calculate_average_salary')
-    employees = Nested(
-        'EmployeeSchema', many=True, exclude=('department', 'department_id')
+    employees = fields.Nested(
+        'EmployeeSchema', many=True, exclude=('department',)
     )
 
     def calculate_average_salary(self, department):
         try:
             return sum(map(lambda employee: employee.salary,
-                       department.employees)) / len(department.employees)
+                           department.employees)) / len(department.employees)
         except ZeroDivisionError:
             return 0
 

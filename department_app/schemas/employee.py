@@ -1,7 +1,22 @@
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
-from marshmallow.fields import Nested
+from marshmallow import fields, ValidationError
 
 from department_app.models.employee import Employee
+from department_app.service.department import DepartmentService
+
+
+class DepartmentNested(fields.Nested):
+    def __init__(self):
+        super().__init__(
+            'DepartmentSchema', exclude=('employees',), required=True
+        )
+
+    def _deserialize(self, value, attr, data, partial=None, **kwargs):
+        try:
+            department_uuid = data['department']['uuid']
+            return DepartmentService.get_department_by_uuid(department_uuid)
+        except KeyError:
+            raise ValidationError('Department missing required field uuid')
 
 
 class EmployeeSchema(SQLAlchemyAutoSchema):
@@ -11,4 +26,4 @@ class EmployeeSchema(SQLAlchemyAutoSchema):
         load_instance = True
         include_fk = True
 
-    department = Nested('DepartmentSchema', exclude=('employees',))
+    department = DepartmentNested()
