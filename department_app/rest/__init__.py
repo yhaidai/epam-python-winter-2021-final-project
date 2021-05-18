@@ -31,3 +31,8 @@ def init_api():
         '/api/employee/<uuid>',
         strict_slashes=False
     )
+    api.add_resource(
+        employees.EmployeeSearchResource,
+        '/api/employees/search',
+        strict_slashes=False
+    )
