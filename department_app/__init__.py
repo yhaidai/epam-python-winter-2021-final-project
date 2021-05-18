@@ -9,13 +9,16 @@ from flask_restful import Api
 
 from config import Config
 
-app = Flask(__name__, template_folder='templates')
+MIGRATION_DIR = 'department_app'
+TEMPLATES_DIR = 'templates'
+
+app = Flask(__name__, template_folder=TEMPLATES_DIR)
 app.config.from_object(Config)
 
 api = Api(app)
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+migrate = Migrate(app, db, directory=MIGRATION_DIR)
 
 from .rest import init_api
 init_api()
