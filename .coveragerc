@@ -1,2 +1,2 @@
 [run]
-source = department_app/
+omit = */virtualenv/*
