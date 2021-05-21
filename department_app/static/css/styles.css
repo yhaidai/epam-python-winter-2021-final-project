@@ -1,0 +1,14 @@
+a.delete:hover {
+	color: #ff0000;
+
+}
+
+a.delete {
+	color: #ff3333;
+	text-decoration:none;
+}
+
+.carousel-inner > .item > img {
+	width:100%;
+	height:400px;
+}

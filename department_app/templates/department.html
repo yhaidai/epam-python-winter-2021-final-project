@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% set active = 'manage departments' %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#add-department">Add new department</a>
+                    </h4>
+                </div>
+                <div id="add-department"
+                     class="panel-collapse collapse {{ 'in' if expand == 'add' else '' }}">
+                    <div class="panel-body">
+                        <form id="add-department-form" action="#">
+                            <div class="form-group">
+                                <label for="add-name">Enter department
+                                    name:</label>
+                                <input type="text" class="form-control"
+                                       id="add-name" placeholder="Marketing">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-organisation">Enter
+                                    department organisation:</label>
+                                <input type="text" class="form-control"
+                                       id="add-organisation"
+                                       placeholder="Google">
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#edit-department">Edit existing department</a>
+                    </h4>
+                </div>
+
+                <div id="edit-department"
+                     class="panel-collapse collapse {{ 'in' if expand == 'edit' else '' }}">
+                    <div class="panel-body">
+                        <form id="edit-department-form" action="#">
+                            <div class="form-group">
+                                <label for="edit-select-department">Select
+                                    department:</label>
+                                <select class="form-control"
+                                        id="edit-select-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-name">Enter department
+                                    name:</label>
+                                <input type="text" class="form-control"
+                                       id="edit-name" placeholder="Marketing">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-organisation">Enter
+                                    department organisation:</label>
+                                <input type="text" class="form-control"
+                                       id="edit-organisation"
+                                       placeholder="Google">
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#delete-department">Delete existing
+                            department</a>
+                    </h4>
+                </div>
+                <div id="delete-department"
+                     class="panel-collapse collapse {{ 'in' if expand == 'delete' else '' }}">
+                    <div class="panel-body">
+                        <form id="delete-department-form" action="#">
+                            <div class="form-group">
+                                <label for="delete-select-department">Select
+                                    department:</label>
+                                <select class="form-control"
+                                        id="delete-select-department">
+                                    <!-- init later with js -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/department.js') }}"></script>
+{% endblock %}

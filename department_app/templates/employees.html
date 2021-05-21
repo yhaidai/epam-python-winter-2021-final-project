@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% set active = 'browse employees' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row center-block" style="width:400px;max-width:100%;">
+            <div class="col-sm-12 col-md-10 col-lg-7">
+                <form id="search-by-dob-form" class="hidden" action="#">
+                    <div class="form-group">
+                        <label for="date">Enter date of birth:</label>
+                        <input type="text" class="form-control"
+                               id="date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <span>Search</span>
+                    </button>
+                </form>
+
+                <form id="search-by-dob-period-form" action="#">
+                    <div class="form-group">
+                        <label for="start-date">Enter start date:</label>
+                        <input type="text" class="form-control"
+                               id="start-date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Enter end date:</label>
+                        <input type="text" class="form-control"
+                               id="end-date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <button type="submit" class="btn
+                    btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <span>Search</span>
+                    </button>
+                </form>
+
+                <div class="checkbox">
+                    <label>
+                        <input id="search-toggle-checkbox" type="checkbox"
+                               value="">Search by exact date
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-7">
+                <table id="employees-table" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Employee</th>
+                        <th class="text-center">Date of birth</th>
+                        <th class="text-center">Salary</th>
+                        <th>Department</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- initialize later with js-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">
+            Want to add new employee?
+        </h2>
+        <a class="btn-lg btn-primary center-block text-center"
+           href={{ url_for("add_employee") }} style="text-decoration:none;">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span>Add employee</span>
+        </a>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/employees.js') }}"></script>
+{% endblock %}
