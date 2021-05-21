@@ -1,6 +1,7 @@
 alembic==1.6.2
 aniso8601==9.0.1
 click==8.0.0
+coverage==5.5
 Flask==2.0.0
 Flask-Classy==0.6.10
 Flask-Migrate==3.0.0
