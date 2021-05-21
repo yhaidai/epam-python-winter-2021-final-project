@@ -5,9 +5,10 @@ from unittest.mock import patch
 from marshmallow import ValidationError
 from sqlalchemy.orm import selectinload
 
-from rest.department_api import DepartmentApi
-from tests.test_case_base import TestCaseBase
-from data import department_to_json, department_1, department_2
+from department_app.rest.department_api import DepartmentApi
+from department_app.tests.test_case_base import TestCaseBase
+from department_app.tests.data import department_to_json, department_1, \
+    department_2
 
 
 class TestDepartmentApi(TestCaseBase):

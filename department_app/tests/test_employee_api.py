@@ -1,16 +1,17 @@
 import http
 import json
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from random import Random
 from unittest.mock import patch
 
 from marshmallow import ValidationError
 from sqlalchemy.orm import selectinload
 
-from rest.employee_api import EmployeeApi, EmployeeSearchApi, get_date_or_none
-from tests.test_case_base import TestCaseBase
-from data import employee_to_json, employee_1, employee_2, employee_3, \
-    employee_4, employee_5
+from department_app.rest.employee_api import EmployeeApi, EmployeeSearchApi, \
+    get_date_or_none
+from department_app.tests.test_case_base import TestCaseBase
+from department_app.tests.data import employee_to_json, employee_1, \
+    employee_2, employee_3, employee_4, employee_5
 
 
 class TestEmployeeApi(TestCaseBase):

@@ -3,7 +3,7 @@ from sqlalchemy.orm import lazyload
 
 from department_app import db
 from department_app.models.employee import Employee
-from service.strategized_service import StrategizedService
+from department_app.service.strategized_service import StrategizedService
 
 
 class EmployeeService(StrategizedService):

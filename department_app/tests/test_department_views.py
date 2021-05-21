@@ -1,5 +1,5 @@
 import http
-from tests.test_case_base import TestCaseBase
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestHomepageViews(TestCaseBase):

@@ -1,14 +1,13 @@
 from datetime import date
 from unittest.mock import patch, MagicMock
 
-from sqlalchemy import and_
 from sqlalchemy.orm import selectinload
 
 from department_app.service.employee_service import EmployeeService
-from department_app.models.employee import Employee
 from department_app.schemas.employee import EmployeeSchema
-from tests.data import employee_1, employee_to_json, employee_2, employee_5
-from tests.test_case_base import TestCaseBase
+from department_app.tests.data import employee_1, employee_to_json, \
+    employee_2, employee_5
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestEmployeeService(TestCaseBase):

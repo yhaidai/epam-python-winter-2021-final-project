@@ -4,8 +4,8 @@ from sqlalchemy.orm import selectinload
 
 from department_app.service.department_service import DepartmentService
 from department_app.schemas.department import DepartmentSchema
-from tests.data import department_1, department_to_json
-from tests.test_case_base import TestCaseBase
+from department_app.tests.data import department_1, department_to_json
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestDepartmentService(TestCaseBase):
