@@ -2,7 +2,7 @@ from marshmallow import validates_schema, ValidationError, fields
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 from department_app.models.department import Department
-from department_app.service.department import DepartmentService
+from department_app.service.department_service import DepartmentService
 
 
 class DepartmentSchema(SQLAlchemyAutoSchema):
@@ -26,7 +26,7 @@ class DepartmentSchema(SQLAlchemyAutoSchema):
             return 0
 
     @validates_schema
-    def validate_name_and_organisation_uniqueness(self, data, **kwargs):
+    def validate_name_and_organisation_uniqueness(self, data):
         department = DepartmentService.get_department_by_name_and_organisation(
             name=data['name'], organisation=data['organisation']
         )

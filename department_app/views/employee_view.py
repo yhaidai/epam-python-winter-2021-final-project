@@ -2,7 +2,7 @@ from flask import render_template
 from flask_classy import FlaskView, route
 
 
-class EmployeesView(FlaskView):
+class EmployeeView(FlaskView):
     route_base = '/'
 
     @route('/employees', endpoint='employees')
@@ -15,10 +15,10 @@ class EmployeesView(FlaskView):
 
     @route('/employee/edit', endpoint='edit_employee')
     @route('/employee/edit/<uuid>', endpoint='edit_employee')
-    def edit_employee(self, uuid):
+    def edit_employee(self, uuid=None):
         return render_template('employee.html', uuid=uuid, expand='edit')
 
     @route('/employee/delete', endpoint='delete_employee')
     @route('/employee/delete/<uuid>', endpoint='delete_employee')
-    def delete_employee(self, uuid):
+    def delete_employee(self, uuid=None):
         return render_template('employee.html', uuid=uuid, expand='delete')

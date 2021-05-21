@@ -1,8 +1,8 @@
 from department_app import app
 
-from . import employees
-from . import departments
-from . import homepage
+from . import employee_view
+from . import department_view
+from . import homepage_view
 
 
 def init_views():
@@ -11,6 +11,6 @@ def init_views():
 
     :return: None
     """
-    employees.EmployeesView.register(app)
-    departments.DepartmentsView.register(app)
-    homepage.HomepageView.register(app)
+    employee_view.EmployeeView.register(app)
+    department_view.DepartmentView.register(app)
+    homepage_view.HomepageView.register(app)

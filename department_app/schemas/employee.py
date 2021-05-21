@@ -2,7 +2,7 @@ from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields, ValidationError
 
 from department_app.models.employee import Employee
-from department_app.service.department import DepartmentService
+from department_app.service.department_service import DepartmentService
 
 
 class DepartmentNested(fields.Nested):

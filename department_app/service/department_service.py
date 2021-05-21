@@ -1,21 +1,14 @@
-from marshmallow import ValidationError
-from sqlalchemy.orm import lazyload, joinedload, subqueryload, selectinload, \
-    raiseload, noload
+from sqlalchemy.orm import lazyload
 
 from department_app import db
 from department_app.models.department import Department
+from service.strategized_service import StrategizedService
 
 
-class DepartmentService:
-    strategies = {
-        lazyload, joinedload, subqueryload, selectinload, raiseload, noload
-    }
-
+class DepartmentService(StrategizedService):
     @classmethod
     def get_departments(cls, strategy=lazyload):
-        if strategy not in cls.strategies:
-            raise ValueError(
-                f'Unsupported strategy. Only {cls.strategies} are allowed')
+        cls._check_strategy(strategy)
 
         return db.session.query(Department).options(
                 strategy(Department.employees)
