@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>department_app.service package &#8212; Department App  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="department_app.views package" href="department_app.views.html" />
+    <link rel="prev" title="department_app.schemas package" href="department_app.schemas.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="department-app-service-package">
+<h1>department_app.service package<a class="headerlink" href="#department-app-service-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-department_app.service.department_service">
+<span id="department-app-service-department-service-module"></span><h2>department_app.service.department_service module<a class="headerlink" href="#module-department_app.service.department_service" title="Permalink to this headline">¶</a></h2>
+<p>Department service used to make database queries, this module defines the
+following classes:</p>
+<ul class="simple">
+<li><p><cite>DepartmentService</cite>, department service</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.service.department_service.</span></span><span class="sig-name descname"><span class="pre">DepartmentService</span></span><a class="headerlink" href="#department_app.service.department_service.DepartmentService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.service.strategized_service.StrategizedService" title="department_app.service.strategized_service.StrategizedService"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.service.strategized_service.StrategizedService</span></code></a></p>
+<p>Department service used to make database queries</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.add_department">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">add_department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">department_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.add_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes department and adds it to the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> – schema to be used to deserialize the department</p></li>
+<li><p><strong>department_json</strong> – data to deserialize the department from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>department that was added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.delete_department">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">delete_department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.delete_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the department with given UUID from database, raises
+ValueError if such department is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uuid</strong> – UUID of the department to be deleted</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of department with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.get_department_by_name_and_organisation">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_department_by_name_and_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.get_department_by_name_and_organisation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the department with given name and organisation  from database,
+raises ValueError if such department is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the department to be fetched</p></li>
+<li><p><strong>organisation</strong> – organisation of the department to be fetched</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>department with given name and organisation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.get_department_by_uuid">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_department_by_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.get_department_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the department with given UUID from database, raises
+ValueError if such department is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uuid</strong> – UUID of the department to be fetched</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of department with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: department with given UUID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.get_departments">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">get_departments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">strategy=&lt;function</span> <span class="pre">lazyload&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.get_departments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches all of the departments from database using given strategy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>strategy</strong> – loading strategy to be used for nested fields</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of all departments</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.department_service.DepartmentService.update_department">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">update_department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">department_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.department_service.DepartmentService.update_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes department and updates department with given UUID using
+latter, raises ValueError if department with given UUID is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> – schema to be used to deserialize the department</p></li>
+<li><p><strong>uuid</strong> – UUID of the department to be updated</p></li>
+<li><p><strong>department_json</strong> – data to deserialize the department from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of department with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: department that was updated</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.service.employee_service">
+<span id="department-app-service-employee-service-module"></span><h2>department_app.service.employee_service module<a class="headerlink" href="#module-department_app.service.employee_service" title="Permalink to this headline">¶</a></h2>
+<p>Employee service used to make database queries, this module defines the
+following classes:</p>
+<ul class="simple">
+<li><p><cite>EmployeeService</cite>, employee service</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.service.employee_service.</span></span><span class="sig-name descname"><span class="pre">EmployeeService</span></span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.service.strategized_service.StrategizedService" title="department_app.service.strategized_service.StrategizedService"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.service.strategized_service.StrategizedService</span></code></a></p>
+<p>Employee service used to make database queries</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.add_employee">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">add_employee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">employee_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.add_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes employee and adds it to the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> – schema to be used to deserialize the employee</p></li>
+<li><p><strong>employee_json</strong> – data to deserialize the employee from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>employee that was added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.delete_employee">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">delete_employee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.delete_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the employee with given UUID from database, raises
+ValueError if such employee is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uuid</strong> – UUID of the employee to be deleted</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of employee with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.get_employee_by_uuid">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_employee_by_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.get_employee_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the employee with given UUID from database, raises
+ValueError if such employee is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uuid</strong> – UUID of the employee to be fetched</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of employee with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: employee with given UUID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.get_employees">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">get_employees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">strategy=&lt;function</span> <span class="pre">lazyload&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.get_employees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches all of the employees from database using given strategy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>strategy</strong> – loading strategy to be used for nested fields</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of all employees</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.get_employees_born_in_period">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">get_employees_born_in_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">start_date</span></em>, <em class="sig-param"><span class="pre">end_date</span></em>, <em class="sig-param"><span class="pre">strategy=&lt;function</span> <span class="pre">lazyload&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.get_employees_born_in_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches employees born in given period from database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – date to fetch employees born after</p></li>
+<li><p><strong>end_date</strong> – date to fetch employees born before</p></li>
+<li><p><strong>strategy</strong> – loading strategy to be used for nested fields</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>employee born in given period</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.get_employees_by_date_of_birth">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">get_employees_by_date_of_birth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">date</span></em>, <em class="sig-param"><span class="pre">strategy=&lt;function</span> <span class="pre">lazyload&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.get_employees_by_date_of_birth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches employees born on given date from database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – date of birth of employees to be fetched</p></li>
+<li><p><strong>strategy</strong> – loading strategy to be used for nested fields</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>employee born on given date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.service.employee_service.EmployeeService.update_employee">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">update_employee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">employee_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.service.employee_service.EmployeeService.update_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes employee and updates employee with given UUID using
+latter, raises ValueError if employee with given UUID is not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> – schema to be used to deserialize the employee</p></li>
+<li><p><strong>uuid</strong> – UUID of the employee to be updated</p></li>
+<li><p><strong>employee_json</strong> – data to deserialize the employee from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – in case of employee with given UUID being absent</p>
+</dd>
+</dl>
+<p>in the database
+:return: employee that was updated</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.service.strategized_service">
+<span id="department-app-service-strategized-service-module"></span><h2>department_app.service.strategized_service module<a class="headerlink" href="#module-department_app.service.strategized_service" title="Permalink to this headline">¶</a></h2>
+<p>Base class for services that use different loading strategies for nested
+fields, this module defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>StrategizedService</cite>, service that uses different loading strategies for</p></li>
+</ul>
+<p>nested fields</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.service.strategized_service.StrategizedService">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.service.strategized_service.</span></span><span class="sig-name descname"><span class="pre">StrategizedService</span></span><a class="headerlink" href="#department_app.service.strategized_service.StrategizedService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Service that uses different loading strategies for nested fields</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.service.strategized_service.StrategizedService.strategies">
+<span class="sig-name descname"><span class="pre">strategies</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{&lt;function</span> <span class="pre">selectinload&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">raiseload&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">subqueryload&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">lazyload&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">noload&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">joinedload&gt;}</span></em><a class="headerlink" href="#department_app.service.strategized_service.StrategizedService.strategies" title="Permalink to this definition">¶</a></dt>
+<dd><p>set of supported loading strategies</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.service">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-department_app.service" title="Permalink to this headline">¶</a></h2>
+<p>This package contains modules defining department and employee services:</p>
+<p>Modules:</p>
+<ul class="simple">
+<li><p><cite>department_service.py</cite>: defines department service</p></li>
+<li><p><cite>employee_service.py</cite>: defines employee service</p></li>
+<li><p><cite>strategized_service.py</cite>: defines service that supports using different</p></li>
+</ul>
+<p>loading strategies</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Department App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">department_app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="department_app.html">department_app package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">department_app</a><ul>
+  <li><a href="department_app.html">department_app package</a><ul>
+      <li>Previous: <a href="department_app.schemas.html" title="previous chapter">department_app.schemas package</a></li>
+      <li>Next: <a href="department_app.views.html" title="next chapter">department_app.views package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Yaroslav Haidai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/department_app.service.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,3 +1,13 @@
+"""
+This package contains modules defining department and employee services:
+
+Modules:
+
+- `department_view.py`: defines department views
+- `employee_view.py`: defines employee views
+- `homepage_view.py`: defines homepage views
+"""
+
 from department_app import app
 
 from . import employee_view

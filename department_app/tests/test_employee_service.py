@@ -1,20 +1,24 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 from datetime import date
 from unittest.mock import patch, MagicMock
 
-from sqlalchemy import and_
 from sqlalchemy.orm import selectinload
 
 from department_app.service.employee_service import EmployeeService
-from department_app.models.employee import Employee
 from department_app.schemas.employee import EmployeeSchema
-from tests.data import employee_1, employee_to_json, employee_2, employee_5
-from tests.test_case_base import TestCaseBase
+from department_app.tests.data import employee_1, employee_to_json, \
+    employee_2, employee_5
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestEmployeeService(TestCaseBase):
+    # pylint: disable=no-self-use
+
     def setUp(self) -> None:
         super().setUp()
-        self.INVALID_UUID = 'invalid_uuid'
+        self.invalid_uuid = 'invalid_uuid'
 
     def test_get_employees(self):
         with patch(
@@ -47,10 +51,10 @@ class TestEmployeeService(TestCaseBase):
             )
 
             with self.assertRaises(ValueError):
-                EmployeeService.get_employee_by_uuid(self.INVALID_UUID)
+                EmployeeService.get_employee_by_uuid(self.invalid_uuid)
 
             db_session_mock.query().filter_by.assert_called_with(
-                uuid=self.INVALID_UUID
+                uuid=self.invalid_uuid
             )
 
     def test_add_employee(self):
@@ -105,11 +109,11 @@ class TestEmployeeService(TestCaseBase):
         ), GetEmployeeByUUIDMock():
             with self.assertRaises(ValueError):
                 EmployeeService.update_employee(
-                    None, self.INVALID_UUID, None
+                    None, self.invalid_uuid, None
                 )
 
             EmployeeService.get_employee_by_uuid.assert_called_once_with(
-                self.INVALID_UUID
+                self.invalid_uuid
             )
 
     def test_delete_employee_success(self):
@@ -130,17 +134,17 @@ class TestEmployeeService(TestCaseBase):
     def test_delete_employee_failure(self):
         with patch(
                 'service.employee_service.db.session', autospec=True
-        ) as db_session_mock, GetEmployeeByUUIDMock():
+        ), GetEmployeeByUUIDMock():
             with self.assertRaises(ValueError):
-                EmployeeService.delete_employee(self.INVALID_UUID)
+                EmployeeService.delete_employee(self.invalid_uuid)
 
             EmployeeService.get_employee_by_uuid.assert_called_once_with(
-                self.INVALID_UUID
+                self.invalid_uuid
             )
 
     def test_get_employees_by_date_of_birth(self):
         expected = [employee_1, employee_2]
-        date = employee_1.date_of_birth
+        search_date = employee_1.date_of_birth
 
         with patch(
                 'service.employee_service.StrategizedService._check_strategy'
@@ -153,12 +157,12 @@ class TestEmployeeService(TestCaseBase):
             )
             strategy = selectinload
             result = EmployeeService.get_employees_by_date_of_birth(
-                date, strategy
+                search_date, strategy
             )
 
             check_strategy_mock.assert_called_once_with(strategy)
             db_session_mock.query().options().filter_by.assert_called_with(
-                date_of_birth=date
+                date_of_birth=search_date
             )
             self.assertEqual(expected, result)
 

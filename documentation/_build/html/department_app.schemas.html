@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>department_app.schemas package &#8212; Department App  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="department_app.service package" href="department_app.service.html" />
+    <link rel="prev" title="department_app.rest package" href="department_app.rest.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="department-app-schemas-package">
+<h1>department_app.schemas package<a class="headerlink" href="#department-app-schemas-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-department_app.schemas.department">
+<span id="department-app-schemas-department-module"></span><h2>department_app.schemas.department module<a class="headerlink" href="#module-department_app.schemas.department" title="Permalink to this headline">¶</a></h2>
+<p>Department schema used to serialize/deserialize departments, this module
+defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>DepartmentSchema</cite>, department serialization/deserialization schema</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.schemas.department.</span></span><span class="sig-name descname"><span class="pre">DepartmentSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchema</span></code></p>
+<p>Department serialization/deserialization schema</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Department schema metadata</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta.dump_only">
+<span class="sig-name descname"><span class="pre">dump_only</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('employees',)</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta.dump_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields to provide only on serialization</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['id']</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields excluded from schema</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta.include_fk">
+<span class="sig-name descname"><span class="pre">include_fk</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta.include_fk" title="Permalink to this definition">¶</a></dt>
+<dd><p>include foreign keys into schema</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta.load_instance">
+<span class="sig-name descname"><span class="pre">load_instance</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta.load_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>deserialize to model instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="department_app.models.html#department_app.models.department.Department" title="department_app.models.department.Department"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.models.department.Department</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.average_salary">
+<span class="sig-name descname"><span class="pre">average_salary</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;fields.Method(default=&lt;marshmallow.missing&gt;,</span> <span class="pre">attribute=None,</span> <span class="pre">validate=None,</span> <span class="pre">required=False,</span> <span class="pre">load_only=False,</span> <span class="pre">dump_only=True,</span> <span class="pre">missing=&lt;marshmallow.missing&gt;,</span> <span class="pre">allow_none=False,</span> <span class="pre">error_messages={'required':</span> <span class="pre">'Missing</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">required</span> <span class="pre">field.',</span> <span class="pre">'null':</span> <span class="pre">'Field</span> <span class="pre">may</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">null.',</span> <span class="pre">'validator_failed':</span> <span class="pre">'Invalid</span> <span class="pre">value.'})&gt;</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.average_salary" title="Permalink to this definition">¶</a></dt>
+<dd><p>average salary of the department employees</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.calculate_average_salary">
+<span class="sig-name descname"><span class="pre">calculate_average_salary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">department</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.calculate_average_salary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns average salary of the department employees</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>department</strong> (<a class="reference internal" href="department_app.models.html#department_app.models.department.Department" title="department_app.models.department.Department"><em>Department</em></a>) – department to calculate average salary for</p>
+</dd>
+<dt class="field-even">Return float</dt>
+<dd class="field-even"><p>average salary of the department employees</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.employees">
+<span class="sig-name descname"><span class="pre">employees</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;fields.Nested(default=&lt;marshmallow.missing&gt;,</span> <span class="pre">attribute=None,</span> <span class="pre">validate=None,</span> <span class="pre">required=False,</span> <span class="pre">load_only=False,</span> <span class="pre">dump_only=False,</span> <span class="pre">missing=&lt;marshmallow.missing&gt;,</span> <span class="pre">allow_none=False,</span> <span class="pre">error_messages={'required':</span> <span class="pre">'Missing</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">required</span> <span class="pre">field.',</span> <span class="pre">'null':</span> <span class="pre">'Field</span> <span class="pre">may</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">null.',</span> <span class="pre">'validator_failed':</span> <span class="pre">'Invalid</span> <span class="pre">value.',</span> <span class="pre">'type':</span> <span class="pre">'Invalid</span> <span class="pre">type.'})&gt;</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.employees" title="Permalink to this definition">¶</a></dt>
+<dd><p>employees working in the department</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.opts">
+<span class="sig-name descname"><span class="pre">opts</span></span><em class="property"><span class="pre">:</span> <span class="pre">SchemaOpts</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&lt;marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchemaOpts</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.opts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.schemas.department.DepartmentSchema.validate_name_and_organisation_uniqueness">
+<span class="sig-name descname"><span class="pre">validate_name_and_organisation_uniqueness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.schemas.department.DepartmentSchema.validate_name_and_organisation_uniqueness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that there are no departments with the same name and
+organisation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – department data</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValidationError</strong> – in case exists another department with such name</p>
+</dd>
+</dl>
+<p>and organisation
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.schemas.employee">
+<span id="department-app-schemas-employee-module"></span><h2>department_app.schemas.employee module<a class="headerlink" href="#module-department_app.schemas.employee" title="Permalink to this headline">¶</a></h2>
+<p>Employee schema used to serialize/deserialize departments, this module
+defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>DepartmentNested</cite>, nested department field for employee schema</p></li>
+<li><p><cite>EmployeeSchema</cite>, employee serialization/deserialization schema</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.schemas.employee.DepartmentNested">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.schemas.employee.</span></span><span class="sig-name descname"><span class="pre">DepartmentNested</span></span><a class="headerlink" href="#department_app.schemas.employee.DepartmentNested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">marshmallow.fields.Nested</span></code></p>
+<p>Nested department field for employee schema</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.schemas.employee.</span></span><span class="sig-name descname"><span class="pre">EmployeeSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchema</span></code></p>
+<p>Employee serialization/deserialization schema</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.Meta">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Employee schema metadata</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['id',</span> <span class="pre">'department_id']</span></em><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields excluded from schema</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.Meta.include_fk">
+<span class="sig-name descname"><span class="pre">include_fk</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.Meta.include_fk" title="Permalink to this definition">¶</a></dt>
+<dd><p>include foreign keys into schema</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.Meta.load_instance">
+<span class="sig-name descname"><span class="pre">load_instance</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.Meta.load_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>deserialize to model instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="department_app.models.html#department_app.models.employee.Employee" title="department_app.models.employee.Employee"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.models.employee.Employee</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.department">
+<span class="sig-name descname"><span class="pre">department</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;fields.DepartmentNested(default=&lt;marshmallow.missing&gt;,</span> <span class="pre">attribute=None,</span> <span class="pre">validate=None,</span> <span class="pre">required=True,</span> <span class="pre">load_only=False,</span> <span class="pre">dump_only=False,</span> <span class="pre">missing=&lt;marshmallow.missing&gt;,</span> <span class="pre">allow_none=False,</span> <span class="pre">error_messages={'required':</span> <span class="pre">'Missing</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">required</span> <span class="pre">field.',</span> <span class="pre">'null':</span> <span class="pre">'Field</span> <span class="pre">may</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">null.',</span> <span class="pre">'validator_failed':</span> <span class="pre">'Invalid</span> <span class="pre">value.',</span> <span class="pre">'type':</span> <span class="pre">'Invalid</span> <span class="pre">type.'})&gt;</span></em><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.department" title="Permalink to this definition">¶</a></dt>
+<dd><p>department the employee works in</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.schemas.employee.EmployeeSchema.opts">
+<span class="sig-name descname"><span class="pre">opts</span></span><em class="property"><span class="pre">:</span> <span class="pre">SchemaOpts</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&lt;marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchemaOpts</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department_app.schemas.employee.EmployeeSchema.opts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.schemas">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-department_app.schemas" title="Permalink to this headline">¶</a></h2>
+<p>This package contains modules defining department and employee
+marshmallow schemas:</p>
+<p>Modules:</p>
+<ul class="simple">
+<li><p><cite>department.py</cite>: defines department schema</p></li>
+<li><p><cite>employee.py</cite>: defines employee schema</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Department App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">department_app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="department_app.html">department_app package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">department_app</a><ul>
+  <li><a href="department_app.html">department_app package</a><ul>
+      <li>Previous: <a href="department_app.rest.html" title="previous chapter">department_app.rest package</a></li>
+      <li>Next: <a href="department_app.service.html" title="next chapter">department_app.service package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Yaroslav Haidai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/department_app.schemas.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

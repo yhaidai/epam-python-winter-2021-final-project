@@ -1,17 +1,22 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 from unittest.mock import patch, MagicMock
 
 from sqlalchemy.orm import selectinload
 
 from department_app.service.department_service import DepartmentService
 from department_app.schemas.department import DepartmentSchema
-from tests.data import department_1, department_to_json
-from tests.test_case_base import TestCaseBase
+from department_app.tests.data import department_1, department_to_json
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestDepartmentService(TestCaseBase):
+    # pylint: disable=no-self-use
+
     def setUp(self) -> None:
         super().setUp()
-        self.INVALID_UUID = 'invalid_uuid'
+        self.invalid_uuid = 'invalid_uuid'
 
     def test_get_departments(self):
         with patch(
@@ -44,10 +49,10 @@ class TestDepartmentService(TestCaseBase):
             )
 
             with self.assertRaises(ValueError):
-                DepartmentService.get_department_by_uuid(self.INVALID_UUID)
+                DepartmentService.get_department_by_uuid(self.invalid_uuid)
 
             db_session_mock.query().filter_by.assert_called_with(
-                uuid=self.INVALID_UUID
+                uuid=self.invalid_uuid
             )
 
     def test_get_department_by_name_and_organisation(self):
@@ -115,11 +120,11 @@ class TestDepartmentService(TestCaseBase):
         ), GetDepartmentByUUIDMock():
             with self.assertRaises(ValueError):
                 DepartmentService.update_department(
-                    None, self.INVALID_UUID, None
+                    None, self.invalid_uuid, None
                 )
 
             DepartmentService.get_department_by_uuid.assert_called_once_with(
-                self.INVALID_UUID
+                self.invalid_uuid
             )
 
     def test_delete_department_success(self):
@@ -140,12 +145,12 @@ class TestDepartmentService(TestCaseBase):
     def test_delete_department_failure(self):
         with patch(
                 'service.department_service.db.session', autospec=True
-        ) as db_session_mock, GetDepartmentByUUIDMock():
+        ), GetDepartmentByUUIDMock():
             with self.assertRaises(ValueError):
-                DepartmentService.delete_department(self.INVALID_UUID)
+                DepartmentService.delete_department(self.invalid_uuid)
 
             DepartmentService.get_department_by_uuid.assert_called_once_with(
-                self.INVALID_UUID
+                self.invalid_uuid
             )
 
 

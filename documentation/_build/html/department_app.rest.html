@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>department_app.rest package &#8212; Department App  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="department_app.schemas package" href="department_app.schemas.html" />
+    <link rel="prev" title="department_app.models package" href="department_app.models.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="department-app-rest-package">
+<h1>department_app.rest package<a class="headerlink" href="#department-app-rest-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-department_app.rest.department_api">
+<span id="department-app-rest-department-api-module"></span><h2>department_app.rest.department_api module<a class="headerlink" href="#module-department_app.rest.department_api" title="Permalink to this headline">¶</a></h2>
+<p>Departments REST API, this module defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>DepartmentApiBase</cite>, department API base class</p></li>
+<li><p><cite>DepartmentListApi</cite>, department list API class</p></li>
+<li><p><cite>DepartmentApi</cite>, department API class</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.department_api.</span></span><span class="sig-name descname"><span class="pre">DepartmentApi</span></span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.rest.department_api.DepartmentApiBase" title="department_app.rest.department_api.DepartmentApiBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.rest.department_api.DepartmentApiBase</span></code></a></p>
+<p>Department API class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.NOT_FOUND_MESSAGE">
+<span class="sig-name descname"><span class="pre">NOT_FOUND_MESSAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Department</span> <span class="pre">not</span> <span class="pre">found'</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.NOT_FOUND_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>message to be returned in case of department not being found</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.NO_CONTENT_MESSAGE">
+<span class="sig-name descname"><span class="pre">NO_CONTENT_MESSAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">''</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.NO_CONTENT_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>message to be returned in case of department being successfully deleted</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>DELETE request handler of department API</p>
+<p>Uses service to delete the department with given uuid, returns no
+content message with a status code 204(No Content), or returns an error
+message with a status code 404(Not Found) in case of department with
+given uuid not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple no content message and status code 204, or a tuple of</p>
+</dd>
+</dl>
+<p>an error message and a status code 404 in case of department with given
+uuid not being found</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'departmentapi'</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET request handler of department API</p>
+<p>Fetches the department with given uuid via service and returns it in a
+JSON format with a status code 200(OK), or returns an error message
+with a status code 404(Not Found) in case of department with given
+uuid not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of the department with given uuid in JSON and a status</p>
+</dd>
+</dl>
+<p>code 200, or a tuple of an error message and a status code 404 in
+case of department with given uuid not being found</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.mediatypes">
+<span class="sig-name descname"><span class="pre">mediatypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.mediatypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of methods this view can handle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApi.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>PUT request handler of department API</p>
+<p>Uses service to deserialize request data and find the department with
+given uuid and update it with deserialized instance, returns updated
+department in a JSON format with a status code 201(Created), or returns
+error messages with a status code 400(Bad Request) in case of
+validation error during deserialization, or returns an error message
+with a status code 404(Not Found) in case of department with given uuid
+not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of updated department JSON and status code 200, or a</p>
+</dd>
+</dl>
+<p>tuple of error messages and status code 400 in case of validation
+error, or a tuple of an error message and a status code 404 in case of
+department with given uuid not being found</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApiBase">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.department_api.</span></span><span class="sig-name descname"><span class="pre">DepartmentApiBase</span></span><a class="headerlink" href="#department_app.rest.department_api.DepartmentApiBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_restful.Resource</span></code></p>
+<p>Department API base class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApiBase.schema">
+<span class="sig-name descname"><span class="pre">schema</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;DepartmentSchema(many=False)&gt;</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApiBase.schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marshmallow schema used for department serialization/deserialization</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentApiBase.service">
+<span class="sig-name descname"><span class="pre">service</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;department_app.service.department_service.DepartmentService</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentApiBase.service" title="Permalink to this definition">¶</a></dt>
+<dd><p>department database service</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.department_api.</span></span><span class="sig-name descname"><span class="pre">DepartmentListApi</span></span><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.rest.department_api.DepartmentApiBase" title="department_app.rest.department_api.DepartmentApiBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.rest.department_api.DepartmentApiBase</span></code></a></p>
+<p>Department list API class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'departmentlistapi'</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET request handler of department list API</p>
+<p>Fetches all departments via service and returns them in a JSON format
+with a status code 200(OK)</p>
+<p>Uses selectinload loading strategy to fetch nested fields to solve
+the N+1 problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of all departments JSON and a status code 200</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi.mediatypes">
+<span class="sig-name descname"><span class="pre">mediatypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi.mediatypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi.methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of methods this view can handle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.department_api.DepartmentListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.department_api.DepartmentListApi.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>POST request handler of department list API</p>
+<p>Deserializes request data, uses service to add the department to the
+database and returns newly added department in a JSON format with a
+status code 201(Created), or returns error messages with a status code
+400(Bad Request) in case of validation error during deserialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of newly added department JSON and status code 201 or a</p>
+</dd>
+</dl>
+<p>tuple of error messages and status code 400 in case of validation error</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.rest.employee_api">
+<span id="department-app-rest-employee-api-module"></span><h2>department_app.rest.employee_api module<a class="headerlink" href="#module-department_app.rest.employee_api" title="Permalink to this headline">¶</a></h2>
+<p>Departments REST API, this module defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>EmployeeApiBase</cite>, employee API base class</p></li>
+<li><p><cite>EmployeeSearchApi</cite>, employee search API class</p></li>
+<li><p><cite>EmployeeListApi</cite>, employee list API class</p></li>
+<li><p><cite>EmployeeApi</cite>, employee API class</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.employee_api.</span></span><span class="sig-name descname"><span class="pre">EmployeeApi</span></span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.rest.employee_api.EmployeeApiBase" title="department_app.rest.employee_api.EmployeeApiBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.rest.employee_api.EmployeeApiBase</span></code></a></p>
+<p>Employee API class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.NOT_FOUND_MESSAGE">
+<span class="sig-name descname"><span class="pre">NOT_FOUND_MESSAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Employee</span> <span class="pre">not</span> <span class="pre">found'</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.NOT_FOUND_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.NO_CONTENT_MESSAGE">
+<span class="sig-name descname"><span class="pre">NO_CONTENT_MESSAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">''</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.NO_CONTENT_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>DELETE request handler of employee API</p>
+<p>Uses service to delete the employee with given uuid, returns no
+content message with a status code 204(No Content), or returns an error
+message with a status code 404(Not Found) in case of employee with
+given uuid not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple no content message and status code 204, or a tuple of</p>
+</dd>
+</dl>
+<p>an error message and a status code 404 in case of employee with given
+uuid not being found</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'employeeapi'</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET request handler of employee API</p>
+<p>Fetches the employee with given uuid via service and returns it in a
+JSON format with a status code 200(OK), or returns an error message
+with a status code 404(Not Found) in case of employee with given
+uuid not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of the employee with given uuid in JSON and a status</p>
+</dd>
+</dl>
+<p>code 200, or a tuple of an error message and a status code 404 in
+case of employee with given uuid not being found</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.mediatypes">
+<span class="sig-name descname"><span class="pre">mediatypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.mediatypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of methods this view can handle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApi.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>PUT request handler of employee API</p>
+<p>Uses service to deserialize request data and find the employee with
+given uuid and update it with deserialized instance, returns updated
+employee in a JSON format with a status code 201(Created), or returns
+error messages with a status code 400(Bad Request) in case of
+validation error during deserialization, or returns an error message
+with a status code 404(Not Found) in case of employee with given uuid
+not being found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of updated employee JSON and status code 200, or a</p>
+</dd>
+</dl>
+<p>tuple of error messages and status code 400 in case of validation
+error, or a tuple of an error message and a status code 404 in case of
+employee with given uuid not being found</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApiBase">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.employee_api.</span></span><span class="sig-name descname"><span class="pre">EmployeeApiBase</span></span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApiBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_restful.Resource</span></code></p>
+<p>Employee API base class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApiBase.schema">
+<span class="sig-name descname"><span class="pre">schema</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;EmployeeSchema(many=False)&gt;</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApiBase.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeApiBase.service">
+<span class="sig-name descname"><span class="pre">service</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;department_app.service.employee_service.EmployeeService</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeApiBase.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.employee_api.</span></span><span class="sig-name descname"><span class="pre">EmployeeListApi</span></span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.rest.employee_api.EmployeeApiBase" title="department_app.rest.employee_api.EmployeeApiBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.rest.employee_api.EmployeeApiBase</span></code></a></p>
+<p>Employee search list API class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'employeelistapi'</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET request handler of employee list API</p>
+<p>Fetches all employees via service and returns them in a JSON format
+with a status code 200(OK)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of all employees JSON and a status code 200</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi.mediatypes">
+<span class="sig-name descname"><span class="pre">mediatypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi.mediatypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi.methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of methods this view can handle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeListApi.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>POST request handler of employee list API</p>
+<p>Deserializes request data, uses service to add the employee to the
+database and returns newly added employee in a JSON format with a
+status code 201(Created), or returns error messages with a status code
+400(Bad Request) in case of validation error during deserialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of newly added employee JSON and status code 201 or a</p>
+</dd>
+</dl>
+<p>tuple of error messages and status code 400 in case of validation error</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.rest.employee_api.</span></span><span class="sig-name descname"><span class="pre">EmployeeSearchApi</span></span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.rest.employee_api.EmployeeApiBase" title="department_app.rest.employee_api.EmployeeApiBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.rest.employee_api.EmployeeApiBase</span></code></a></p>
+<p>Employee search API class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.BAD_DATE_MESSAGE">
+<span class="sig-name descname"><span class="pre">BAD_DATE_MESSAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Bad</span> <span class="pre">date'</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.BAD_DATE_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'employeesearchapi'</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET request handler of employee API</p>
+<p>Fetches the employees born on given date via service and returns them
+in a JSON format with a status code 200(OK).
+Or fetches the employees born in given period and returns them in a
+JSON format wth a status code 200(OK) in case of the exact date being
+unspecified/invalid.
+Or returns an error message with a status code 400(Bad Request) in
+case of both the exact date and the period being unspecified/invalid.</p>
+<p>Uses selectinload loading strategy while fetching nested fields to
+solve the N+1 problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of the employees born on given date in JSON and a</p>
+</dd>
+</dl>
+<p>status code 200, or a tuple of an error message and a status code 404
+in case of the exact date being unspecified/invalid, or a tuple of an
+error message and a status code 400.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.mediatypes">
+<span class="sig-name descname"><span class="pre">mediatypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.mediatypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'GET'}</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of methods this view can handle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.EmployeeSearchApi.parser">
+<span class="sig-name descname"><span class="pre">parser</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;flask_restful.reqparse.RequestParser</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department_app.rest.employee_api.EmployeeSearchApi.parser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="department_app.rest.employee_api.get_date_or_none">
+<span class="sig-prename descclassname"><span class="pre">department_app.rest.employee_api.</span></span><span class="sig-name descname"><span class="pre">get_date_or_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y-%m-%d'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.employee_api.get_date_or_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns date represented by date string and date format or None if date
+string has wrong type/doesn’t match the format specified</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_str</strong> – date string to convert into date object</p></li>
+<li><p><strong>date_format</strong> – format of the date string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>date object constructed from date string using date format or</p>
+</dd>
+</dl>
+<p>None in case of being unable to construct date object</p>
+</dd></dl>
+
+</section>
+<section id="module-department_app.rest">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-department_app.rest" title="Permalink to this headline">¶</a></h2>
+<p>This package contains modules defining department and employee REST APIs and
+functions to initialize respective API endpoints:</p>
+<p>Modules:</p>
+<ul class="simple">
+<li><p><cite>department_api.py</cite>: defines model representing departments</p></li>
+<li><p><cite>employee_api.py</cite>: defines model representing employees</p></li>
+</ul>
+<p>Functions:</p>
+<ul class="simple">
+<li><p><cite>init_api</cite>: register REST API endpoints</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="department_app.rest.init_api">
+<span class="sig-prename descclassname"><span class="pre">department_app.rest.</span></span><span class="sig-name descname"><span class="pre">init_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.rest.init_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register REST Api endpoints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Department App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">department_app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="department_app.html">department_app package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">department_app</a><ul>
+  <li><a href="department_app.html">department_app package</a><ul>
+      <li>Previous: <a href="department_app.models.html" title="previous chapter">department_app.models package</a></li>
+      <li>Next: <a href="department_app.schemas.html" title="next chapter">department_app.schemas package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Yaroslav Haidai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/department_app.rest.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>department_app.tests package &#8212; Department App  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="department_app.views package" href="department_app.views.html" />
+    <link rel="prev" title="department_app.service package" href="department_app.service.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="department-app-tests-package">
+<h1>department_app.tests package<a class="headerlink" href="#department-app-tests-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-department_app.tests.data">
+<span id="department-app-tests-data-module"></span><h2>department_app.tests.data module<a class="headerlink" href="#module-department_app.tests.data" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="department_app.tests.data.department_to_json">
+<span class="sig-prename descclassname"><span class="pre">department_app.tests.data.</span></span><span class="sig-name descname"><span class="pre">department_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">department</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.data.department_to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="department_app.tests.data.employee_to_json">
+<span class="sig-prename descclassname"><span class="pre">department_app.tests.data.</span></span><span class="sig-name descname"><span class="pre">employee_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">employee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.data.employee_to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_case_base">
+<span id="department-app-tests-test-case-base-module"></span><h2>department_app.tests.test_case_base module<a class="headerlink" href="#module-department_app.tests.test_case_base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_case_base.TestCaseBase">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_case_base.</span></span><span class="sig-name descname"><span class="pre">TestCaseBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_case_base.TestCaseBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_case_base.TestCaseBase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#department_app.tests.test_case_base.TestCaseBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_department_api">
+<span id="department-app-tests-test-department-api-module"></span><h2>department_app.tests.test_department_api module<a class="headerlink" href="#module-department_app.tests.test_department_api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_department_api.</span></span><span class="sig-name descname"><span class="pre">TestDepartmentApi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_delete_department_failure">
+<span class="sig-name descname"><span class="pre">test_delete_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_delete_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_delete_department_success">
+<span class="sig-name descname"><span class="pre">test_delete_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_delete_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_get_department_failure">
+<span class="sig-name descname"><span class="pre">test_get_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_get_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_get_department_success">
+<span class="sig-name descname"><span class="pre">test_get_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_get_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_get_departments">
+<span class="sig-name descname"><span class="pre">test_get_departments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_get_departments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_post_department_failure">
+<span class="sig-name descname"><span class="pre">test_post_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_post_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_post_department_success">
+<span class="sig-name descname"><span class="pre">test_post_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_post_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_put_department_failure">
+<span class="sig-name descname"><span class="pre">test_put_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_put_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_api.TestDepartmentApi.test_put_department_success">
+<span class="sig-name descname"><span class="pre">test_put_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_api.TestDepartmentApi.test_put_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_department_service">
+<span id="department-app-tests-test-department-service-module"></span><h2>department_app.tests.test_department_service module<a class="headerlink" href="#module-department_app.tests.test_department_service" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.GetDepartmentByUUIDMock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_department_service.</span></span><span class="sig-name descname"><span class="pre">GetDepartmentByUUIDMock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.GetDepartmentByUUIDMock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_department_service.</span></span><span class="sig-name descname"><span class="pre">TestDepartmentService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_add_department">
+<span class="sig-name descname"><span class="pre">test_add_department</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_add_department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_delete_department_failure">
+<span class="sig-name descname"><span class="pre">test_delete_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_delete_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_delete_department_success">
+<span class="sig-name descname"><span class="pre">test_delete_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_delete_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_name_and_organisation">
+<span class="sig-name descname"><span class="pre">test_get_department_by_name_and_organisation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_name_and_organisation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_uuid_failure">
+<span class="sig-name descname"><span class="pre">test_get_department_by_uuid_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_uuid_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_uuid_success">
+<span class="sig-name descname"><span class="pre">test_get_department_by_uuid_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_get_department_by_uuid_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_get_departments">
+<span class="sig-name descname"><span class="pre">test_get_departments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_get_departments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_update_department_failure">
+<span class="sig-name descname"><span class="pre">test_update_department_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_update_department_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_service.TestDepartmentService.test_update_department_success">
+<span class="sig-name descname"><span class="pre">test_update_department_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_service.TestDepartmentService.test_update_department_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_department_views">
+<span id="department-app-tests-test-department-views-module"></span><h2>department_app.tests.test_department_views module<a class="headerlink" href="#module-department_app.tests.test_department_views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_department_views.TestHomepageViews">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_department_views.</span></span><span class="sig-name descname"><span class="pre">TestHomepageViews</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_views.TestHomepageViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_views.TestHomepageViews.test_add_department">
+<span class="sig-name descname"><span class="pre">test_add_department</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_views.TestHomepageViews.test_add_department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_views.TestHomepageViews.test_delete_department">
+<span class="sig-name descname"><span class="pre">test_delete_department</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_views.TestHomepageViews.test_delete_department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_views.TestHomepageViews.test_departments">
+<span class="sig-name descname"><span class="pre">test_departments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_views.TestHomepageViews.test_departments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_department_views.TestHomepageViews.test_edit_department">
+<span class="sig-name descname"><span class="pre">test_edit_department</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_department_views.TestHomepageViews.test_edit_department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_employee_api">
+<span id="department-app-tests-test-employee-api-module"></span><h2>department_app.tests.test_employee_api module<a class="headerlink" href="#module-department_app.tests.test_employee_api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_employee_api.</span></span><span class="sig-name descname"><span class="pre">TestEmployeeApi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_delete_employee_failure">
+<span class="sig-name descname"><span class="pre">test_delete_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_delete_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_delete_employee_success">
+<span class="sig-name descname"><span class="pre">test_delete_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_delete_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_get_date_or_none">
+<span class="sig-name descname"><span class="pre">test_get_date_or_none</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_get_date_or_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_get_employee_failure">
+<span class="sig-name descname"><span class="pre">test_get_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_get_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_get_employee_success">
+<span class="sig-name descname"><span class="pre">test_get_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_get_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_get_employees">
+<span class="sig-name descname"><span class="pre">test_get_employees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_get_employees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_post_employee_failure">
+<span class="sig-name descname"><span class="pre">test_post_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_post_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_post_employee_success">
+<span class="sig-name descname"><span class="pre">test_post_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_post_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_put_employee_failure">
+<span class="sig-name descname"><span class="pre">test_put_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_put_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_put_employee_success">
+<span class="sig-name descname"><span class="pre">test_put_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_put_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_born_in_period_failure">
+<span class="sig-name descname"><span class="pre">test_search_employees_born_in_period_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_born_in_period_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_born_in_period_success">
+<span class="sig-name descname"><span class="pre">test_search_employees_born_in_period_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_born_in_period_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_by_date_failure">
+<span class="sig-name descname"><span class="pre">test_search_employees_by_date_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_by_date_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_by_date_success">
+<span class="sig-name descname"><span class="pre">test_search_employees_by_date_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_api.TestEmployeeApi.test_search_employees_by_date_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_employee_service">
+<span id="department-app-tests-test-employee-service-module"></span><h2>department_app.tests.test_employee_service module<a class="headerlink" href="#module-department_app.tests.test_employee_service" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.GetEmployeeByUUIDMock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_employee_service.</span></span><span class="sig-name descname"><span class="pre">GetEmployeeByUUIDMock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.GetEmployeeByUUIDMock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_employee_service.</span></span><span class="sig-name descname"><span class="pre">TestEmployeeService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_add_employee">
+<span class="sig-name descname"><span class="pre">test_add_employee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_add_employee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_delete_employee_failure">
+<span class="sig-name descname"><span class="pre">test_delete_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_delete_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_delete_employee_success">
+<span class="sig-name descname"><span class="pre">test_delete_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_delete_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_get_employee_by_uuid_failure">
+<span class="sig-name descname"><span class="pre">test_get_employee_by_uuid_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_get_employee_by_uuid_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_get_employee_by_uuid_success">
+<span class="sig-name descname"><span class="pre">test_get_employee_by_uuid_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_get_employee_by_uuid_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_get_employees">
+<span class="sig-name descname"><span class="pre">test_get_employees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_get_employees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_get_employees_born_in_period">
+<span class="sig-name descname"><span class="pre">test_get_employees_born_in_period</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_get_employees_born_in_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_get_employees_by_date_of_birth">
+<span class="sig-name descname"><span class="pre">test_get_employees_by_date_of_birth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_get_employees_by_date_of_birth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_update_employee_failure">
+<span class="sig-name descname"><span class="pre">test_update_employee_failure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_update_employee_failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_service.TestEmployeeService.test_update_employee_success">
+<span class="sig-name descname"><span class="pre">test_update_employee_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_service.TestEmployeeService.test_update_employee_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_employee_views">
+<span id="department-app-tests-test-employee-views-module"></span><h2>department_app.tests.test_employee_views module<a class="headerlink" href="#module-department_app.tests.test_employee_views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_views.TestHomepageViews">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_employee_views.</span></span><span class="sig-name descname"><span class="pre">TestHomepageViews</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_views.TestHomepageViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_views.TestHomepageViews.test_add_employee">
+<span class="sig-name descname"><span class="pre">test_add_employee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_views.TestHomepageViews.test_add_employee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_views.TestHomepageViews.test_delete_employee">
+<span class="sig-name descname"><span class="pre">test_delete_employee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_views.TestHomepageViews.test_delete_employee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_views.TestHomepageViews.test_edit_employee">
+<span class="sig-name descname"><span class="pre">test_edit_employee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_views.TestHomepageViews.test_edit_employee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_employee_views.TestHomepageViews.test_employees">
+<span class="sig-name descname"><span class="pre">test_employees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_employee_views.TestHomepageViews.test_employees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests.test_homepage_views">
+<span id="department-app-tests-test-homepage-views-module"></span><h2>department_app.tests.test_homepage_views module<a class="headerlink" href="#module-department_app.tests.test_homepage_views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.tests.test_homepage_views.TestHomepageViews">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.tests.test_homepage_views.</span></span><span class="sig-name descname"><span class="pre">TestHomepageViews</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_homepage_views.TestHomepageViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#department_app.tests.test_case_base.TestCaseBase" title="department_app.tests.test_case_base.TestCaseBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">department_app.tests.test_case_base.TestCaseBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.tests.test_homepage_views.TestHomepageViews.test_homepage">
+<span class="sig-name descname"><span class="pre">test_homepage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.tests.test_homepage_views.TestHomepageViews.test_homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-department_app.tests" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Department App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">department_app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="department_app.html">department_app package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">department_app</a><ul>
+  <li><a href="department_app.html">department_app package</a><ul>
+      <li>Previous: <a href="department_app.service.html" title="previous chapter">department_app.service package</a></li>
+      <li>Next: <a href="department_app.views.html" title="next chapter">department_app.views package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Yaroslav Haidai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/department_app.tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

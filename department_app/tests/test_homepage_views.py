@@ -1,6 +1,9 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 import http
 
-from tests.test_case_base import TestCaseBase
+from department_app.tests.test_case_base import TestCaseBase
 
 
 class TestHomepageViews(TestCaseBase):

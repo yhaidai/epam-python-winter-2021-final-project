@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>department_app.views package &#8212; Department App  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="department_app.service package" href="department_app.service.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="department-app-views-package">
+<h1>department_app.views package<a class="headerlink" href="#department-app-views-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-department_app.views.department_view">
+<span id="department-app-views-department-view-module"></span><h2>department_app.views.department_view module<a class="headerlink" href="#module-department_app.views.department_view" title="Permalink to this headline">¶</a></h2>
+<p>Department views used to manage departments on web application, this module
+defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>DepartmentView</cite>, class that defines department views</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.views.department_view.</span></span><span class="sig-name descname"><span class="pre">DepartmentView</span></span><a class="headerlink" href="#department_app.views.department_view.DepartmentView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_classy.FlaskView</span></code></p>
+<p>Department views used to manage departments on web application</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.add_department">
+<span class="sig-name descname"><span class="pre">add_department</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.department_view.DepartmentView.add_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>department.html</cite> template for url route
+<cite>/department/add</cite> and endpoint <cite>add_department</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>department.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.base_args">
+<span class="sig-name descname"><span class="pre">base_args</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['/']</span></em><a class="headerlink" href="#department_app.views.department_view.DepartmentView.base_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.delete_department">
+<span class="sig-name descname"><span class="pre">delete_department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.department_view.DepartmentView.delete_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>department.html</cite> template for url routes
+<cite>/department/delete</cite>, <cite>/department/delete/&lt;uuid&gt;</cite> and endpoint
+<cite>delete_department</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>department.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.departments">
+<span class="sig-name descname"><span class="pre">departments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.department_view.DepartmentView.departments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>departments.html</cite> template for url route
+<cite>/departments</cite> and endpoint <cite>departments</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>departments.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.edit_department">
+<span class="sig-name descname"><span class="pre">edit_department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.department_view.DepartmentView.edit_department" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>department.html</cite> template for url routes
+<cite>/department/edit</cite>, <cite>/department/edit/&lt;uuid&gt;</cite> and endpoint
+<cite>edit_department</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>department.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.department_view.DepartmentView.route_base">
+<span class="sig-name descname"><span class="pre">route_base</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/'</span></em><a class="headerlink" href="#department_app.views.department_view.DepartmentView.route_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>base url route for all department routes</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.views.employee_view">
+<span id="department-app-views-employee-view-module"></span><h2>department_app.views.employee_view module<a class="headerlink" href="#module-department_app.views.employee_view" title="Permalink to this headline">¶</a></h2>
+<p>Employee views used to manage employees on web application, this module
+defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>EmployeeView</cite>, class that defines employee views</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.views.employee_view.</span></span><span class="sig-name descname"><span class="pre">EmployeeView</span></span><a class="headerlink" href="#department_app.views.employee_view.EmployeeView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_classy.FlaskView</span></code></p>
+<p>Employee views used to manage employees on web application</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.add_employee">
+<span class="sig-name descname"><span class="pre">add_employee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.add_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>employee.html</cite> template for url route
+<cite>/employee/add</cite> and endpoint <cite>add_employee</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>employee.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.base_args">
+<span class="sig-name descname"><span class="pre">base_args</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['/']</span></em><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.base_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.delete_employee">
+<span class="sig-name descname"><span class="pre">delete_employee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.delete_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>employee.html</cite> template for url routes
+<cite>/employee/delete</cite>, <cite>/employee/delete/&lt;uuid&gt;</cite> and endpoint
+<cite>delete_employee</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>employee.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.edit_employee">
+<span class="sig-name descname"><span class="pre">edit_employee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.edit_employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>employee.html</cite> template for url routes
+<cite>/employee/edit</cite>, <cite>/employee/edit/&lt;uuid&gt;</cite> and endpoint
+<cite>edit_employee</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>employee.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.employees">
+<span class="sig-name descname"><span class="pre">employees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.employees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>employees.html</cite> template for url route
+<cite>/employees</cite> and endpoint <cite>employees</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>employees.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.employee_view.EmployeeView.route_base">
+<span class="sig-name descname"><span class="pre">route_base</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/'</span></em><a class="headerlink" href="#department_app.views.employee_view.EmployeeView.route_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>base url route for all employee routes</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.views.homepage_view">
+<span id="department-app-views-homepage-view-module"></span><h2>department_app.views.homepage_view module<a class="headerlink" href="#module-department_app.views.homepage_view" title="Permalink to this headline">¶</a></h2>
+<p>Web application homepage views used, this module defines the following classes:</p>
+<ul class="simple">
+<li><p><cite>HomepageView</cite>, class that defines homepage views</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="department_app.views.homepage_view.HomepageView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">department_app.views.homepage_view.</span></span><span class="sig-name descname"><span class="pre">HomepageView</span></span><a class="headerlink" href="#department_app.views.homepage_view.HomepageView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_classy.FlaskView</span></code></p>
+<p>Web application homepage views</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.homepage_view.HomepageView.base_args">
+<span class="sig-name descname"><span class="pre">base_args</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['/']</span></em><a class="headerlink" href="#department_app.views.homepage_view.HomepageView.base_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department_app.views.homepage_view.HomepageView.homepage">
+<span class="sig-name descname"><span class="pre">homepage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.homepage_view.HomepageView.homepage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns rendered <cite>index.html</cite> template for url route <cite>/</cite> and endpoint
+<cite>homepage</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>rendered <cite>index.html</cite> template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department_app.views.homepage_view.HomepageView.route_base">
+<span class="sig-name descname"><span class="pre">route_base</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/'</span></em><a class="headerlink" href="#department_app.views.homepage_view.HomepageView.route_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>base url route for all homepage routes</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-department_app.views">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-department_app.views" title="Permalink to this headline">¶</a></h2>
+<p>This package contains modules defining department and employee services:</p>
+<p>Modules:</p>
+<ul class="simple">
+<li><p><cite>department_view.py</cite>: defines department views</p></li>
+<li><p><cite>employee_view.py</cite>: defines employee views</p></li>
+<li><p><cite>homepage_view.py</cite>: defines homepage views</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="department_app.views.init_views">
+<span class="sig-prename descclassname"><span class="pre">department_app.views.</span></span><span class="sig-name descname"><span class="pre">init_views</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#department_app.views.init_views" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register views</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Department App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">department_app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="department_app.html">department_app package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">department_app</a><ul>
+  <li><a href="department_app.html">department_app package</a><ul>
+      <li>Previous: <a href="department_app.service.html" title="previous chapter">department_app.service package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Yaroslav Haidai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/department_app.views.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

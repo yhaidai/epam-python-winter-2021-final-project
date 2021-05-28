@@ -1,3 +1,6 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 import unittest
 
 from department_app import app
