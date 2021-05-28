@@ -1,0 +1,86 @@
+department\_app.tests package
+=============================
+
+Submodules
+----------
+
+department\_app.tests.data module
+---------------------------------
+
+.. automodule:: department_app.tests.data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_case\_base module
+---------------------------------------------
+
+.. automodule:: department_app.tests.test_case_base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_department\_api module
+--------------------------------------------------
+
+.. automodule:: department_app.tests.test_department_api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_department\_service module
+------------------------------------------------------
+
+.. automodule:: department_app.tests.test_department_service
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_department\_views module
+----------------------------------------------------
+
+.. automodule:: department_app.tests.test_department_views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_employee\_api module
+------------------------------------------------
+
+.. automodule:: department_app.tests.test_employee_api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_employee\_service module
+----------------------------------------------------
+
+.. automodule:: department_app.tests.test_employee_service
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_employee\_views module
+--------------------------------------------------
+
+.. automodule:: department_app.tests.test_employee_views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+department\_app.tests.test\_homepage\_views module
+--------------------------------------------------
+
+.. automodule:: department_app.tests.test_homepage_views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: department_app.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
