@@ -1,3 +1,6 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 import http
 import json
 from datetime import date, datetime
@@ -15,12 +18,14 @@ from department_app.tests.data import employee_to_json, employee_1, \
 
 
 class TestEmployeeApi(TestCaseBase):
+    # pylint: disable=no-self-use
+
     def setUp(self) -> None:
         super().setUp()
-        self.VALUE_ERROR = ValueError('Test Value Error Message')
-        self.VALIDATION_ERROR = ValidationError('Test Validation Error Message')
-        self.INVALID_UUID = 'invalid_uuid'
-        self.INVALID_DATE = 'invalid date'
+        self.value_error = ValueError('Test Value Error Message')
+        self.validation_error = ValidationError('Test Validation Error Message')
+        self.invalid_uuid = 'invalid_uuid'
+        self.invalid_date = 'invalid date'
         self.random = Random()
 
     def test_get_employees(self):
@@ -58,11 +63,11 @@ class TestEmployeeApi(TestCaseBase):
     def test_get_employee_failure(self):
         with patch(
                 'rest.employee_api.EmployeeService.get_employee_by_uuid',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as get_employee_by_uuid_mock:
             self.__test_get_employee(
                 get_employee_by_uuid_mock,
-                self.INVALID_UUID,
+                self.invalid_uuid,
                 http.HTTPStatus.NOT_FOUND,
                 EmployeeApi.NOT_FOUND_MESSAGE
             )
@@ -88,13 +93,13 @@ class TestEmployeeApi(TestCaseBase):
 
         with patch(
                 'rest.employee_api.EmployeeService.add_employee',
-                side_effect=self.VALIDATION_ERROR
+                side_effect=self.validation_error
         ) as add_employee_failure_mock:
             self.__test_post_employee(
                 data,
                 add_employee_failure_mock,
                 http.HTTPStatus.BAD_REQUEST,
-                self.VALIDATION_ERROR.messages
+                self.validation_error.messages
             )
 
     def test_put_employee_success(self):
@@ -119,19 +124,19 @@ class TestEmployeeApi(TestCaseBase):
 
         with patch(
                 'rest.employee_api.EmployeeService.update_employee',
-                side_effect=self.VALIDATION_ERROR
+                side_effect=self.validation_error
         ) as update_employee_failure_mock:
             self.__test_put_employee(
                 data,
                 update_employee_failure_mock,
-                self.INVALID_UUID,
+                self.invalid_uuid,
                 http.HTTPStatus.BAD_REQUEST,
-                self.VALIDATION_ERROR.messages
+                self.validation_error.messages
             )
 
         with patch(
                 'rest.employee_api.EmployeeService.update_employee',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as add_employee_failure_mock:
             self.__test_put_employee(
                 data,
@@ -157,18 +162,18 @@ class TestEmployeeApi(TestCaseBase):
     def test_delete_employee_failure(self):
         with patch(
                 'rest.employee_api.EmployeeService.delete_employee',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as delete_employee_failure_mock:
             self.__test_delete_employee(
                 delete_employee_failure_mock,
-                self.INVALID_UUID,
+                self.invalid_uuid,
                 http.HTTPStatus.NOT_FOUND,
                 EmployeeApi.NOT_FOUND_MESSAGE
             )
 
     def test_search_employees_by_date_success(self):
         mock_return_value = [employee_1, employee_2]
-        date = str(employee_1.date_of_birth)
+        search_date = str(employee_1.date_of_birth)
 
         with patch(
                 'rest.employee_api.EmployeeService.get_employees_by_date_of_birth',
@@ -177,7 +182,7 @@ class TestEmployeeApi(TestCaseBase):
         ) as get_employees_by_date_of_birth_success_mock:
             self.__test_search_employee_by_date(
                 get_employees_by_date_of_birth_success_mock,
-                date,
+                search_date,
                 http.HTTPStatus.OK,
                 [employee_to_json(employee) for employee in mock_return_value]
             )
@@ -188,7 +193,7 @@ class TestEmployeeApi(TestCaseBase):
         ) as get_employees_by_date_of_birth_failure_mock:
             self.__test_search_employee_by_date(
                 get_employees_by_date_of_birth_failure_mock,
-                self.INVALID_DATE,
+                self.invalid_date,
                 http.HTTPStatus.BAD_REQUEST,
                 EmployeeSearchApi.BAD_DATE_MESSAGE,
                 assert_mock_called=False
@@ -215,12 +220,12 @@ class TestEmployeeApi(TestCaseBase):
     def test_search_employees_born_in_period_failure(self):
         with patch(
                 'rest.employee_api.EmployeeService.get_employees_born_in_period',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as get_employees_by_date_of_birth_failure_mock:
             self.__test_search_employee_born_in_period(
                 get_employees_by_date_of_birth_failure_mock,
-                self.INVALID_DATE,
-                self.INVALID_DATE,
+                self.invalid_date,
+                self.invalid_date,
                 http.HTTPStatus.BAD_REQUEST,
                 EmployeeSearchApi.BAD_DATE_MESSAGE,
                 assert_mock_called=False
@@ -291,6 +296,7 @@ class TestEmployeeApi(TestCaseBase):
         )
         # assert that 'add_employee' was called once with data
         add_employee_mock.assert_called_once()
+        # pylint: disable=unused-variable
         name, args, kwargs = add_employee_mock.mock_calls[0]
         self.assertEqual(args[1], data)
 
@@ -312,6 +318,7 @@ class TestEmployeeApi(TestCaseBase):
         )
         # assert that 'update_employee' was called once with uuid and data
         update_employee_mock.assert_called_once()
+        # pylint: disable=unused-variable
         name, args, kwargs = update_employee_mock.mock_calls[0]
         self.assertEqual(args[1], uuid)
         self.assertEqual(args[2], data)
@@ -338,16 +345,16 @@ class TestEmployeeApi(TestCaseBase):
     def __test_search_employee_by_date(
             self,
             search_employees_mock,
-            date,
+            search_date,
             expected_code,
             expected_json,
             assert_mock_called=True
     ):
-        response = self.client.get(f'/api/employees/search?date={date}')
+        response = self.client.get(f'/api/employees/search?date={search_date}')
 
         if assert_mock_called:
             search_employees_mock.assert_called_once_with(
-                datetime.strptime(date, '%Y-%m-%d').date(),
+                datetime.strptime(search_date, '%Y-%m-%d').date(),
                 strategy=selectinload
             )
         self.assertEqual(response.status_code, expected_code)

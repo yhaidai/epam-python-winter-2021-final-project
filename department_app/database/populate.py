@@ -1,3 +1,12 @@
+"""
+This module defines is used to populate database with departments and employees,
+it defines the following:
+
+Functions:
+
+- `populate_database`: populate database with employees and departments
+"""
+
 from datetime import date
 
 from department_app import db
@@ -6,6 +15,11 @@ from department_app.models.employee import Employee
 
 
 def populate_database():
+    """
+    Populate database with employees and departments
+
+    :return: None
+    """
     department_1 = Department('Research and Development', 'Google')
     department_2 = Department('Purchasing', 'Amazon')
     department_3 = Department('Human Resource Management', 'Huawei')

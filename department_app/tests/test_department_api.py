@@ -1,3 +1,6 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 import http
 import json
 from unittest.mock import patch
@@ -12,11 +15,13 @@ from department_app.tests.data import department_to_json, department_1, \
 
 
 class TestDepartmentApi(TestCaseBase):
+    # pylint: disable=no-self-use
+
     def setUp(self) -> None:
         super().setUp()
-        self.VALUE_ERROR = ValueError('Test Value Error Message')
-        self.VALIDATION_ERROR = ValidationError('Test Validation Error Message')
-        self.FAILURE_UUID = 'failure_uuid'
+        self.value_error = ValueError('Test Value Error Message')
+        self.validation_error = ValidationError('Test Validation Error Message')
+        self.failure_uuid = 'failure_uuid'
 
     def test_get_departments(self):
         mock_return_value = [department_1, department_2]
@@ -51,11 +56,11 @@ class TestDepartmentApi(TestCaseBase):
     def test_get_department_failure(self):
         with patch(
                 'rest.department_api.DepartmentService.get_department_by_uuid',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as get_department_by_uuid_mock:
             self.__test_get_department(
                 get_department_by_uuid_mock,
-                self.FAILURE_UUID,
+                self.failure_uuid,
                 http.HTTPStatus.NOT_FOUND,
                 DepartmentApi.NOT_FOUND_MESSAGE
             )
@@ -81,13 +86,13 @@ class TestDepartmentApi(TestCaseBase):
 
         with patch(
                 'rest.department_api.DepartmentService.add_department',
-                side_effect=self.VALIDATION_ERROR
+                side_effect=self.validation_error
         ) as add_department_failure_mock:
             self.__test_post_department(
                 data,
                 add_department_failure_mock,
                 http.HTTPStatus.BAD_REQUEST,
-                self.VALIDATION_ERROR.messages
+                self.validation_error.messages
             )
 
     def test_put_department_success(self):
@@ -112,19 +117,19 @@ class TestDepartmentApi(TestCaseBase):
 
         with patch(
                 'rest.department_api.DepartmentService.update_department',
-                side_effect=self.VALIDATION_ERROR
+                side_effect=self.validation_error
         ) as update_department_failure_mock:
             self.__test_put_department(
                 data,
                 update_department_failure_mock,
-                self.FAILURE_UUID,
+                self.failure_uuid,
                 http.HTTPStatus.BAD_REQUEST,
-                self.VALIDATION_ERROR.messages
+                self.validation_error.messages
             )
 
         with patch(
                 'rest.department_api.DepartmentService.update_department',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as add_department_failure_mock:
             self.__test_put_department(
                 data,
@@ -150,11 +155,11 @@ class TestDepartmentApi(TestCaseBase):
     def test_delete_department_failure(self):
         with patch(
                 'rest.department_api.DepartmentService.delete_department',
-                side_effect=self.VALUE_ERROR
+                side_effect=self.value_error
         ) as delete_department_failure_mock:
             self.__test_delete_department(
                 delete_department_failure_mock,
-                self.FAILURE_UUID,
+                self.failure_uuid,
                 http.HTTPStatus.NOT_FOUND,
                 DepartmentApi.NOT_FOUND_MESSAGE
             )
@@ -176,6 +181,7 @@ class TestDepartmentApi(TestCaseBase):
         )
         # assert that 'add_department' was called once with data
         add_department_mock.assert_called_once()
+        # pylint: disable=unused-variable
         name, args, kwargs = add_department_mock.mock_calls[0]
         self.assertEqual(args[1], data)
 
@@ -191,6 +197,7 @@ class TestDepartmentApi(TestCaseBase):
         )
         # assert that 'update_department' was called once with uuid and data
         update_department_mock.assert_called_once()
+        # pylint: disable=unused-variable
         name, args, kwargs = update_department_mock.mock_calls[0]
         self.assertEqual(args[1], uuid)
         self.assertEqual(args[2], data)

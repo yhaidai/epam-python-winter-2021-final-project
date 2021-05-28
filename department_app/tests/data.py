@@ -1,3 +1,6 @@
+# pylint: disable=missing-function-docstring, missing-module-docstring
+# pylint: disable=missing-class-docstring
+
 from datetime import date
 
 from department_app.models.department import Department

@@ -1,3 +1,18 @@
+"""
+This package contains modules defining department and employee REST APIs and
+functions to initialize respective API endpoints:
+
+Modules:
+
+- `department_api.py`: defines model representing departments
+- `employee_api.py`: defines model representing employees
+
+Functions:
+
+- `init_api`: register REST API endpoints
+"""
+# pylint: disable=cyclic-import
+
 from department_app import api
 
 from . import department_api
