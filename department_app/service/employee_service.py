@@ -29,7 +29,7 @@ class EmployeeService(StrategizedService):
         cls._check_strategy(strategy)
 
         return db.session.query(Employee).options(
-            strategy(Employee.employee)
+            strategy(Employee.department)
         ).all()
 
     @staticmethod
