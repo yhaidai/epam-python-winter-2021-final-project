@@ -61,7 +61,7 @@ class DepartmentSchema(SQLAlchemyAutoSchema):
             return 0
 
     @validates_schema
-    def validate_name_and_organisation_uniqueness(self, data):
+    def validate_name_and_organisation_uniqueness(self, data, **kwargs):
         """
         Validate that there are no departments with the same name and
         organisation
