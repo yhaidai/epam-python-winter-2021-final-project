@@ -54,6 +54,7 @@ console_handler = logging.StreamHandler(sys.stdout)
 console_handler.setFormatter(formatter)
 console_handler.setLevel(logging.DEBUG)
 
+# pylint: disable=no-member
 logger = app.logger
 logger.handlers.clear()
 app.logger.addHandler(file_handler)
