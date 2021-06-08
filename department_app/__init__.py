@@ -27,6 +27,7 @@ import sys
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_swagger_ui import get_swaggerui_blueprint
 
 # fix of an issue: https://github.com/flask-restful/flask-restful/pull/913
 import flask.scaffold
@@ -79,6 +80,18 @@ api = Api(app)
 # database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, directory=MIGRATION_DIR)
+
+# Swagger UI
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGER_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Department App'
+    }
+)
+app.register_blueprint(SWAGGER_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 from .rest import init_api
 init_api()
