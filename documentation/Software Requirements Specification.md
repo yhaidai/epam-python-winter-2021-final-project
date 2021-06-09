@@ -21,7 +21,8 @@ Application should provide:
 - Application homepage is displayed (Pic 1.1)
 
 <figure class="image">
-  <img src="../department_app/static/images/homepage.png" alt="Homepage">
+  <img src="../department_app/static/images/homepage.png" alt="Homepage" 
+style="display: block">
   <figcaption>Pic 1.1 Navigation to the "Browse departments" option</figcaption>
 </figure>
 
@@ -37,12 +38,14 @@ The mode is designed to view the list of departments.
 - Application displays list of departments (Pic 2.2)
 
 <figure class="image">
-  <img src="../department_app/static/images/browse_departments_navigation.png" alt="Navigation to the 'Browse departments' option">
+  <img src="../department_app/static/images/browse_departments_navigation.
+png" alt="Navigation to the 'Browse departments' option" style="display: block">
   <figcaption>Pic 2.1 Navigation to the "Browse departments" option</figcaption>
 </figure>
 
 <figure class="image">
-  <img src="../department_app/static/images/browse_departments_page.png" alt="'Browse departments' page">
+  <img src="../department_app/static/images/browse_departments_page.png" 
+alt="'Browse departments' page" style="display: block">
   <figcaption>Pic 2.2 List of departments</figcaption>
 </figure>
 
@@ -64,7 +67,8 @@ The list displays the following columns:
 - If error occurs, then error message is displayed
 
 <figure class="image">
-  <img src="../department_app/static/images/add_department.png" alt="'Add department' view">
+  <img src="../department_app/static/images/add_department.png" 
+alt="'Add department' view" style="display: block">
   <figcaption>Pic 2.3 Adding a department</figcaption>
 </figure>
 
@@ -88,7 +92,8 @@ Constraints for data validation:
 - If error occurs, then error message is displayed
 
 <figure class="image">
-  <img src="../department_app/static/images/edit_department.png" alt="'Edit department' view">
+  <img src="../department_app/static/images/edit_department.png" 
+alt="'Edit department' view" style="display: block">
   <figcaption>Pic 2.4 Editing a department</figcaption>
 </figure>
 
@@ -112,7 +117,8 @@ Constraints for data validation:
 - If error occurs, then error message is displayed
 
 <figure class="image">
-  <img src="../department_app/static/images/delete_department.png" alt="'Delete department' view">
+  <img src="../department_app/static/images/delete_department.png" 
+alt="'Delete department' view" style="display: block">
   <figcaption>Pic 2.5 Deleting a department</figcaption>
 </figure>
 
