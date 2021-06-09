@@ -33,7 +33,7 @@ The mode is designed to view the list of departments.
   menu (Pic 2.1)
 - Application displays list of departments (Pic 2.2)
 
-![Navigation to the 'Browse departments' option](../department_app/static/images/browse_departments_navigation.png)
+![Navigation to the 'Browse departments' option](../department_app/static/images/browse_departments_navigation.png)  
 Pic 2.1 Navigation to the "Browse departments" option  
 
 !['Browse departments' view](../department_app/static/images/browse_departments_page.png)
