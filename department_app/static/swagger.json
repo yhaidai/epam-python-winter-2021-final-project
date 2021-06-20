@@ -1,0 +1,492 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Department App RESTful API endpoints documentation",
+    "version": "1.0.0",
+    "title": "Department App RESTful API",
+    "contact": {
+      "email": "yhaidai@ukr.net"
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Department Request"
+    },
+    {
+      "name": "Employee Request"
+    }
+  ],
+  "paths": {
+    "/api/departments": {
+      "get": {
+        "tags": [
+          "Department Request"
+        ],
+        "summary": "Returns all available departments in the system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/departmentResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Department Request"
+        ],
+        "summary": "Create a new department",
+        "requestBody": {
+          "description": "Department Request Post Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/nested_department"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          },
+          "400": {
+            "description": "Failed. Wrong data."
+          }
+        }
+      }
+    },
+    "/api/department/{uuid}": {
+      "get": {
+        "tags": [
+          "Department Request"
+        ],
+        "summary": "Get department with given UUID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Department Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/department"
+            }
+          },
+          "404": {
+            "description": "Failed. Department was not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Edit department by UUID",
+        "tags": [
+          "Department Request"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Department Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Department Request Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/nested_department"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/department"
+            }
+          },
+          "400": {
+            "description": "Failed. Wrong data."
+          },
+          "404": {
+            "description": "Failed. Department was not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Department Request by UUID",
+        "tags": [
+          "Department Request"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Department Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Department was not found."
+          }
+        }
+      }
+    },
+    "/api/employees": {
+      "get": {
+        "tags": [
+          "Employee Request"
+        ],
+        "summary": "Returns all available employees in the system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/employeeResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Employee Request"
+        ],
+        "summary": "Create a new employee",
+        "requestBody": {
+          "description": "Employee Request Post Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/employee"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          },
+          "400": {
+            "description": "Failed. Wrong data."
+          }
+        }
+      }
+    },
+    "/api/employee/{uuid}": {
+      "get": {
+        "tags": [
+          "Employee Request"
+        ],
+        "summary": "Get employee with given UUID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Employee Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/employee"
+            }
+          },
+          "404": {
+            "description": "Failed. Employee was not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Edit employee by UUID",
+        "tags": [
+          "Employee Request"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Employee Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Employee Request Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/employee_with_department_uuid"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/employee"
+            }
+          },
+          "400": {
+            "description": "Failed. Wrong data."
+          },
+          "404": {
+            "description": "Failed. Employee was not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete employee by UUID",
+        "tags": [
+          "Employee Request"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "description": "Employee Request UUID",
+            "schema": {
+              "$ref": "#/components/schemas/uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Employee was not found."
+          }
+        }
+      }
+    },
+    "/api/employees/search": {
+      "get": {
+        "tags": [
+          "Employee Request"
+        ],
+        "summary": "Get employees by date of birth",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "date",
+            "description": "Employee Request date of birth",
+            "schema": {
+              "$ref": "#/components/schemas/date"
+            }
+          },
+          {
+            "in": "query",
+            "name": "start_date",
+            "description": "Employee Request start date of birth",
+            "schema": {
+              "$ref": "#/components/schemas/date"
+            }
+          },
+          {
+            "in": "query",
+            "name": "end_date",
+            "description": "Employee Request end date of birth",
+            "schema": {
+              "$ref": "#/components/schemas/date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/employee"
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "uuid": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "date": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "department": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/nested_employee"
+            }
+          }
+        }
+      },
+      "nested_department": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          }
+        }
+      },
+      "department_with_uuid": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "departmentResponse": {
+        "type": "object",
+        "properties": {
+          "bookRequest": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/department"
+            }
+          }
+        }
+      },
+      "employee": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date"
+          },
+          "salary": {
+            "type": "integer"
+          },
+          "department": {
+            "type": "object",
+            "$ref": "#/components/schemas/nested_department"
+          }
+        }
+      },
+      "employee_with_department_uuid": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date"
+          },
+          "salary": {
+            "type": "integer"
+          },
+          "department": {
+            "type": "object",
+            "$ref": "#/components/schemas/department_with_uuid"
+          }
+        }
+      },
+      "nested_employee": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date"
+          },
+          "salary": {
+            "type": "integer"
+          }
+        }
+      },
+      "employeeResponse": {
+        "type": "object",
+        "properties": {
+          "bookRequest": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/employee"
+            }
+          }
+        }
+      }
+    }
+  }
+}

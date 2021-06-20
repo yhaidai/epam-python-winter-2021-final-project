@@ -60,8 +60,9 @@ class DepartmentSchema(SQLAlchemyAutoSchema):
         except ZeroDivisionError:
             return 0
 
+    # pylint: disable=unused-argument
     @validates_schema
-    def validate_name_and_organisation_uniqueness(self, data):
+    def validate_name_and_organisation_uniqueness(self, data, **kwargs):
         """
         Validate that there are no departments with the same name and
         organisation

@@ -20,12 +20,14 @@ models
 """
 
 # pylint: disable=wrong-import-position, protected-access, cyclic-import
-
+import logging.config
 import os
+import sys
 
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_swagger_ui import get_swaggerui_blueprint
 
 # fix of an issue: https://github.com/flask-restful/flask-restful/pull/913
 import flask.scaffold
@@ -42,10 +44,54 @@ TEMPLATES_DIR = 'templates'
 app = Flask(__name__, template_folder=TEMPLATES_DIR)
 app.config.from_object(Config)
 
+# logging
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(name)s: %(message)s')
+
+file_handler = logging.FileHandler(filename='app.log', mode='w')
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.DEBUG)
+
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(formatter)
+console_handler.setLevel(logging.DEBUG)
+
+# pylint: disable=no-member
+logger = app.logger
+logger.handlers.clear()
+app.logger.addHandler(file_handler)
+app.logger.addHandler(console_handler)
+app.logger.setLevel(logging.DEBUG)
+
+werkzeug_logger = logging.getLogger('werkzeug')
+werkzeug_logger.handlers.clear()
+werkzeug_logger.addHandler(file_handler)
+werkzeug_logger.addHandler(console_handler)
+werkzeug_logger.setLevel(logging.DEBUG)
+
+# sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
+# sqlalchemy_logger.addHandler(file_handler)
+# sqlalchemy_logger.addHandler(console_handler)
+# sqlalchemy_logger.setLevel(logging.DEBUG)
+
+
+# RESTful API
 api = Api(app)
 
+# database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, directory=MIGRATION_DIR)
+
+# Swagger UI
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGER_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Department App'
+    }
+)
+app.register_blueprint(SWAGGER_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 from .rest import init_api
 init_api()
